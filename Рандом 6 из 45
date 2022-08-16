@@ -1,0 +1,8 @@
+##
+Println('Спортлото 6 из 45. Случайные числа:');
+var a: integer;
+for var i := 0 to 5 do
+  begin
+    a := Random(1,45);
+    a.Print;
+  end;
