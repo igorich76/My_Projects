@@ -1,0 +1,63 @@
+{
+Идея, по которой сделана программа - расчёт количества матчей с чётным исходом и нечётным.
+Меня всегда интересовал вопрос: каких матчей (в теории, конечно, при равных вероятностях)
+получается больше - с нечётным исходом или чётным?
+Максимальный счёт проверки счёт 5:5.
+Перебраны все варианты возможных счётов матчей.
+}
+##
+var a := |0, 1, 2, 3, 4, 5|; // голы команды1
+var b := |0, 1, 2, 3, 4, 5|; // голы команды2
+var (num_pp,cnt) := (0,0); // num_pp - номер по порядку, cnt - кол-во чётных исходов
+for var j:=0 to 0 do
+  begin
+for var i := 0 to 5 do 
+  begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[0], ':', b[i]);
+  if ((a[0] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+for var i := 0 to 5 do 
+begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[1], ':', b[i]);
+  if ((a[1] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+for var i := 0 to 5 do
+  begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[2], ':', b[i]);
+  if ((a[2] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+for var i := 0 to 5 do
+  begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[3], ':', b[i]);
+  if ((a[3] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+for var i := 0 to 5 do
+  begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[4], ':', b[i]);
+  if ((a[4] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+for var i := 0 to 5 do
+  begin
+  num_pp +=1;
+  Print(num_pp, '->');
+  Println(a[5], ':', b[i]);
+  if ((a[5] + b[i]) mod 2 = 0) then cnt += 1;
+  end;
+Println('///');
+Print('Чётных исходов =',cnt);
+end;
