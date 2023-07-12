@@ -46,14 +46,14 @@ var Надпись_Объяснение := new &Label;
 Надпись_Объяснение.SetBounds(10,50,560,70);
 Надпись_Объяснение.BackColor := Color.Yellow;
 Надпись_Объяснение.Font := font_16;
-Надпись_Объяснение.Text := 'Стратегия "Дельта" - метод подбора комбинации чисел для лотереи "Спортлото 6 из 45". Подробности в статье:';
+Надпись_Объяснение.Text := 'Стратегия "Дельта" - метод подбора комбинации чисел для лотереи "Спортлото 6 из 45". Подробности в статье (схема 3):';
 Надпись_Объяснение.TextAlign := ContentAlignment.MiddleCenter;
 //
 var Надпись_Ссылка := new LinkLabel;
 Надпись_Ссылка.SetBounds(10,120,560,70);
 Надпись_Ссылка.BackColor := Color.Yellow;
 Надпись_Ссылка.Font := font_16;
-Надпись_Ссылка.Text := 'https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat (схема 3)';
+Надпись_Ссылка.Text := 'https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat';
 Надпись_Ссылка.TextAlign := ContentAlignment.MiddleCenter;
 //
 // запуск
