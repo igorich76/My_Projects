@@ -19,3 +19,45 @@ var mass3 := (a1,b1,c1,d1,e1,f1);
 Println('Итого вариант=',mass3);
 if (mass3[5] >= 46) then Print('Комбинация чисел неправильная!')
   else Print('Можно загонять бабки!');
+//////////////////////////////////// оконный вариант /////////////////////////////////////
+## // Дельта-Лотто (оконный вариант)
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+// формa
+var ГлавнаяФорма := new Form;
+ГлавнаяФорма.StartPosition := FormStartPosition.CenterScreen;
+ГлавнаяФорма.Size := new Size(600,500);
+ГлавнаяФорма.BackColor := Color.LightGray;
+ГлавнаяФорма.Text := 'Дельта-Лотто';
+// шрифты
+var font_16 := new Font('',16);
+var font_24 := new Font('',24);
+//
+var Надпись_Дельта := new &Label;
+Надпись_Дельта.SetBounds(225,5,130,40);
+Надпись_Дельта.BackColor := Color.Yellow;
+Надпись_Дельта.Font := font_24;
+Надпись_Дельта.Text := 'Дельта';
+Надпись_Дельта.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Надпись_Объяснение := new &Label;
+Надпись_Объяснение.SetBounds(10,50,560,70);
+Надпись_Объяснение.BackColor := Color.Yellow;
+Надпись_Объяснение.Font := font_16;
+Надпись_Объяснение.Text := 'Стратегия "Дельта" - метод подбора комбинации чисел для лотереи "Спортлото 6 из 45". Подробности в статье:';
+Надпись_Объяснение.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Надпись_Ссылка := new LinkLabel;
+Надпись_Ссылка.SetBounds(10,120,560,70);
+Надпись_Ссылка.BackColor := Color.Yellow;
+Надпись_Ссылка.Font := font_16;
+Надпись_Ссылка.Text := 'https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat (схема 3)';
+Надпись_Ссылка.TextAlign := ContentAlignment.MiddleCenter;
+//
+// запуск
+Надпись_Дельта.Parent := ГлавнаяФорма;
+Надпись_Ссылка.Parent := ГлавнаяФорма;
+Надпись_Объяснение.Parent := ГлавнаяФорма;
+Application.Run(ГлавнаяФорма);
