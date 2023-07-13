@@ -7,57 +7,53 @@
 }
 ##
 var a := |0, 1, 2, 3, 4, 5|; // голы команды1
-var b := |0, 1, 2, 3, 4, 5|; // голы команды2
 var (num_pp,cnt) := (0,0); // num_pp - номер по порядку, cnt - кол-во чётных исходов
-for var j:=0 to 0 do
-  begin
 for var i := 0 to 5 do 
   begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[0], ':', b[i]);
-  if ((a[0] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[0], ':', i);
+  if ((a[0] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 for var i := 0 to 5 do 
 begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[1], ':', b[i]);
-  if ((a[1] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[1], ':', i);
+  if ((a[1] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 for var i := 0 to 5 do
   begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[2], ':', b[i]);
-  if ((a[2] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[2], ':', i);
+  if ((a[2] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 for var i := 0 to 5 do
   begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[3], ':', b[i]);
-  if ((a[3] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[3], ':', i);
+  if ((a[3] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 for var i := 0 to 5 do
   begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[4], ':', b[i]);
-  if ((a[4] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[4], ':', i);
+  if ((a[4] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 for var i := 0 to 5 do
   begin
   num_pp +=1;
   Print(num_pp, '->');
-  Println(a[5], ':', b[i]);
-  if ((a[5] + b[i]) mod 2 = 0) then cnt += 1;
+  Println(a[5], ':', i);
+  if ((a[5] + i) mod 2 = 0) then cnt += 1;
   end;
 Println('///');
 Print('Чётных исходов =',cnt);
-end;
