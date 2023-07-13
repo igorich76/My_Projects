@@ -100,7 +100,7 @@ end;
 //
 Кнопка_Начать.Click += (sender, ea) →
 begin
-Надпись_Случайка_по_стратегии.Text := mass2.ToString;
+Окно_Случайка_по_стратегии.Text := mass2.ToString;
 Окно_N.Text := a1.ToString;
 Окно_Итоговый_Вар.Text := mass3.ToString;
 end;
