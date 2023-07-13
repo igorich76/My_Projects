@@ -1,0 +1,93 @@
+## // Дельта-Лотто (оконный вариант)
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+// формa
+var ГлавнаяФорма := new Form;
+ГлавнаяФорма.StartPosition := FormStartPosition.CenterScreen;
+ГлавнаяФорма.Size := new Size(600,500);
+ГлавнаяФорма.BackColor := Color.LightGray;
+ГлавнаяФорма.Text := 'Дельта-Лотто';
+// шрифты
+var font_16 := new Font('',16);
+var font_24 := new Font('',24);
+//
+var Надпись_Дельта := new &Label;
+Надпись_Дельта.SetBounds(225,5,130,40);
+Надпись_Дельта.BackColor := Color.Yellow;
+Надпись_Дельта.Font := font_24;
+Надпись_Дельта.Text := 'Дельта';
+Надпись_Дельта.TextAlign := ContentAlignment.MiddleCenter;
+//
+
+var Надпись_Объяснение := new &Label;
+Надпись_Объяснение.SetBounds(10,50,560,70);
+Надпись_Объяснение.BackColor := Color.Yellow;
+Надпись_Объяснение.Font := font_16;
+Надпись_Объяснение.Text := 'Стратегия "Дельта" - метод подбора комбинации чисел для лотереи "Спортлото 6 из 45". Подробности в статье (схема 3):';
+Надпись_Объяснение.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Надпись_Ссылка := new LinkLabel;
+Надпись_Ссылка.SetBounds(10,120,560,70);
+Надпись_Ссылка.BackColor := Color.Yellow;
+Надпись_Ссылка.Font := font_16;
+Надпись_Ссылка.Text := 'https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat';
+Надпись_Ссылка.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Надпись_Случайка_по_стратегии := new &Label;
+Надпись_Случайка_по_стратегии.SetBounds(10,200,250,45);
+Надпись_Случайка_по_стратегии.BackColor := Color.Yellow;
+Надпись_Случайка_по_стратегии.Font := font_16;
+Надпись_Случайка_по_стратегии.Text := 'Случайка по стратегии:';
+Надпись_Случайка_по_стратегии.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Окно_Случайка_по_стратегии := new TextBox;
+Окно_Случайка_по_стратегии.SetBounds(270,200,300,50);
+Окно_Случайка_по_стратегии.Font := font_24;
+//
+var Надпись_N := new &Label;
+Надпись_N.SetBounds(10,250,250,45);
+Надпись_N.BackColor := Color.Yellow;
+Надпись_N.Font := font_16;
+Надпись_N.Text := '№ Дельта:';
+Надпись_N.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Окно_N := new TextBox;
+Окно_N.SetBounds(270,250,100,50);
+Окно_N.Font := font_24;
+//
+var Надпись_Итоговый_Вар := new &Label;
+Надпись_Итоговый_Вар.SetBounds(10,300,250,45);
+Надпись_Итоговый_Вар.BackColor := Color.Yellow;
+Надпись_Итоговый_Вар.Font := font_16;
+Надпись_Итоговый_Вар.Text := 'Итоговый варинант:';
+Надпись_Итоговый_Вар.TextAlign := ContentAlignment.MiddleCenter;
+//
+var Окно_Итоговый_Вар := new TextBox;
+Окно_Итоговый_Вар.SetBounds(270,300,300,50);
+Окно_Итоговый_Вар.Font := font_24;
+// кнопка 1
+var Кнопка_Начать := new Button;
+Кнопка_Начать.SetBounds(170,370,270,70);
+Кнопка_Начать.Text := 'Начать';
+Кнопка_Начать.Font := font_24;
+//
+{
+Кнопка_Начать.Click += (sender, ea) →
+begin
+Надпись_Случайка_по_стратегии.Text := mass2;
+end;
+}
+//
+Надпись_Дельта.Parent := ГлавнаяФорма;
+Надпись_Ссылка.Parent := ГлавнаяФорма;
+Надпись_Объяснение.Parent := ГлавнаяФорма;
+Надпись_Случайка_по_стратегии.Parent := ГлавнаяФорма;
+Окно_Случайка_по_стратегии.Parent := ГлавнаяФорма;
+Надпись_N.Parent := ГлавнаяФорма;
+Окно_N.Parent := ГлавнаяФорма;
+Надпись_Итоговый_Вар.Parent := ГлавнаяФорма;
+Окно_Итоговый_Вар.Parent := ГлавнаяФорма;
+Кнопка_Начать.Parent := ГлавнаяФорма;
+Application.Run(ГлавнаяФорма);
