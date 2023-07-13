@@ -32,7 +32,7 @@ var Надпись_Ссылка := new LinkLabel;
 Надпись_Ссылка.SetBounds(10,120,560,70);
 Надпись_Ссылка.BackColor := Color.Yellow;
 Надпись_Ссылка.Font := font_16;
-Надпись_Ссылка.Text := 'https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat';
+Надпись_Ссылка.Text := 'Подробности в статье (схема 3)';
 Надпись_Ссылка.TextAlign := ContentAlignment.MiddleCenter;
 //
 var Надпись_Случайка_по_стратегии := new &Label;
@@ -72,6 +72,11 @@ var Кнопка_Начать := new Button;
 Кнопка_Начать.SetBounds(170,370,270,70);
 Кнопка_Начать.Text := 'Начать';
 Кнопка_Начать.Font := font_24;
+//
+Надпись_Ссылка.Click += (sender, ea) →
+begin
+  System.Diagnostics.Process.Start('https://thelotter.club/novosti/12-skhem-dlya-vyigrysha-v-lotereyu-100-rezultat');
+end;
 //
 {
 Кнопка_Начать.Click += (sender, ea) →
