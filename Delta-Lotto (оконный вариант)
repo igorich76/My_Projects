@@ -1,4 +1,4 @@
-## // Дельта-Лотто (оконный вариант) 13-07-2023
+## // Дельта-Лотто (оконный вариант) 14-07-2023
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
@@ -93,6 +93,17 @@ mass[0]+mass[1]+mass[2]+mass[3]+mass[4]+mass[5]|;
 Окно_Случайка_по_стратегии.Text := mass.JoinToString(', ');
 Окно_N.Text := mass[0].ToString;
 Окно_Итоговый_Вар.Text := mass3.JoinToString(', ');
+if (mass3[5] <= 45) then 
+  begin
+    Кнопка_Начать.ForeColor := Color.Green;
+    Кнопка_Начать.Text := 'Можно ставить бабки!';
+  end
+  else
+  begin
+    Кнопка_Начать.ForeColor := Color.Red;
+    Кнопка_Начать.Text := 'Комбинация НЕВЕРНАЯ!';
+  end;
+  
 end;
 //
 Надпись_Дельта.Parent := ГлавнаяФорма;
