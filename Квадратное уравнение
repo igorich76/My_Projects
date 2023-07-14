@@ -1,0 +1,14 @@
+## // решение квадратного уравнения
+// без функций!
+
+var (a, b, c) := ReadlnReal3('Введите три переменные = ');
+
+if ((Sqr(b) - (4 * (a * c))) < 0) then Println('Нет корней');
+
+if ((Sqr(b) - (4 * (a * c))) = 0) then Println('х = ', (-b / (2 * a)));
+
+if ((Sqr(b) - (4 * (a * c))) > 0) then 
+  begin
+    Println('х1 = ', (-b + Sqrt((Sqr(b) - (4 * (a * c))))) / 2 * a);
+    Println('х2 = ', (-b - Sqrt((Sqr(b) - (4 * (a * c))))) / 2 * a);
+   end;
