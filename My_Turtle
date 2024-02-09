@@ -1,10 +1,20 @@
-// Черепаха
-
 program My_Turtle;
 uses GraphWPF, Controls, WPFObjects, TurtleWPF;
-
+//
+procedure turtleLine;
+begin
+  MoveTo(330,290);Down;Forw(100);
+end;
+//
+procedure turtleCross;
+begin
+  MoveTo(330,290);Down;Forw(100);Up; Forw(-50);Turn(90);Down;Forw(50);
+  Up;Forw(-50);Down;Turn(180);Forw(50);
+end;
+//
 begin
 MoveTo(330,290);
+SetWidth(4);SetColor(Colors.Blue);
 window.title := 'Черепаха';
 LeftPanel(150,Colors.Orange);
 var x := 10;
@@ -15,12 +25,18 @@ lst.Tooltip := 'Выберите фигуру - отобразится изоб�
 lst.AddRange('Линия','Крестик','Снежинка','Квадрат','Куб','Окружность',
 'Окружность пунктиром','Куб пунктиром','Лучи','Изогнутые лучи');
 //////////
+
+//////////
 var btnSetup := Button(x,10,'Запустить',w);
 btnSetup.Tooltip := 'Запустите Черепаху';
 btnSetup.Click := () →
 begin
-  SetWidth(4);SetColor(Colors.Blue);Down; 
-  Forw(100);
+  case lst.SelectedIndex of
+    0: turtleLine;
+    1: turtleCross;
+    //2: turtleSnowflake;
+    //3: turtleSquare;
+  end;  
 end;
 //////////
 var sld := Slider(x,0,'Скорость:',1,10,w);
@@ -39,6 +55,13 @@ case sld.Value of
     9:  TurtleWPF.SetSpeed(9);
     10: TurtleWPF.SetSpeed(10);
 end;
+//////////
+var btnAtFirst := Button(x,10,'Сначала',w);
+btnAtFirst.Click := procedure → 
+begin
+  Window.Clear;MoveTo(330,290);
+end;
+
 //////////
 var btnExit := Button(x,10,'Выход',w);
 btnExit.Tooltip := 'Выход';
