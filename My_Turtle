@@ -1,0 +1,46 @@
+// Черепаха
+
+program My_Turtle;
+uses GraphWPF, Controls, WPFObjects, TurtleWPF;
+
+begin
+MoveTo(330,290);
+window.title := 'Черепаха';
+LeftPanel(150,Colors.Orange);
+var x := 10;
+var w := 130;
+//////////
+var lst := ComboBox('Список фигур');
+lst.Tooltip := 'Выберите фигуру - отобразится изображение';
+lst.AddRange('Линия','Крестик','Снежинка','Квадрат','Куб','Окружность',
+'Окружность пунктиром','Куб пунктиром','Лучи','Изогнутые лучи');
+//////////
+var btnSetup := Button(x,10,'Запустить',w);
+btnSetup.Tooltip := 'Запустите Черепаху';
+btnSetup.Click := () →
+begin
+  SetWidth(4);SetColor(Colors.Blue);Down; 
+  Forw(100);
+end;
+//////////
+var sld := Slider(x,0,'Скорость:',1,10,w);
+sld.Tooltip := 'Отрегулируйте скорость';
+
+sld.ValueChanged := () → 
+case sld.Value of
+    1:  TurtleWPF.SetSpeed(1);
+    2:  TurtleWPF.SetSpeed(2);
+    3:  TurtleWPF.SetSpeed(3);
+    4:  TurtleWPF.SetSpeed(4);
+    5:  TurtleWPF.SetSpeed(5);
+    6:  TurtleWPF.SetSpeed(6);
+    7:  TurtleWPF.SetSpeed(7);
+    8:  TurtleWPF.SetSpeed(8);
+    9:  TurtleWPF.SetSpeed(9);
+    10: TurtleWPF.SetSpeed(10);
+end;
+//////////
+var btnExit := Button(x,10,'Выход',w);
+btnExit.Tooltip := 'Выход';
+btnExit.Click := procedure → Window.Close;
+end.
