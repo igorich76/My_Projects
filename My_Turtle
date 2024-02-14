@@ -52,3 +52,68 @@ var btnExit := Button(x,10,'Выход',w);
 btnExit.Tooltip := 'Выход';
 btnExit.Click := procedure → Window.Close;
 end.
+///////////////////////////////////////////////////
+// вариант через кнопки
+program My_Turtle;
+uses GraphWPF, Controls, WPFObjects, TurtleWPF;
+/////////////
+procedure turtleLine;
+begin
+  Window.Clear;MoveTo(330,290);Down;Forw(100);
+end;
+///////////
+procedure turtleCross;
+begin
+  Window.Clear;
+  MoveTo(330,290);Down;Forw(100);Back(50);
+  Turn(90);Forw(50);Back(100);
+end;
+///////////
+procedure turtleSquare;
+begin
+  MoveTo(330,290);Down;
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+end;
+//////////
+begin
+MoveTo(330,290);
+SetSpeed(5);SetColor(Colors.Blue);SetWidth(5);
+window.title := 'Черепаха';
+LeftPanel(150,Colors.Orange);
+var x := 10;
+var w := 130;
+//////////
+//////////
+var btnLine := Button(x,10,'Линия',w);
+btnLine.Tooltip := 'Черепаха рисует линию';
+btnLine.Click := procedure () → turtleLine;
+//////////
+var btnCross := Button(x,10,'Крестик',w);
+btnCross.Tooltip := 'Черепаха рисует крестик';
+btnCross.Click := procedure () → turtleCross;
+//////////
+var btnSquare := Button(x,10,'Квадрат',w);
+btnSquare.Tooltip := 'Черепаха рисует квадрат';
+btnSquare.Click := procedure () → 
+begin
+  MoveTo(330,290);Down;
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+  Forw(100);Turn(90);
+end;
+//////////
+var btnAtFirst := Button(x,10,'Сначала',w);
+btnAtFirst.Click := procedure → 
+begin
+  Window.Clear;
+  MoveTo(330,290);
+end;
+//////////
+var btnExit := Button(x,10,'Выход',w);
+btnExit.Tooltip := 'Выход';
+btnExit.Click := procedure → Window.Close;
+end.
