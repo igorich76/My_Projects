@@ -1,91 +1,32 @@
 program My_Turtle;
 uses GraphWPF, Controls, WPFObjects, TurtleWPF;
-//
+/////////////
 procedure turtleLine;
 begin
   Down;Forw(100);
 end;
-//
+///////////
 procedure turtleCross;
 begin
-  Down;Forw(100);Up;Forw(-50);Turn(90);Down;Forw(50);
-  Up;Forw(-50);Down;Turn(180);Forw(50);Turn(90);
+  Down;
+  Forw(100);
+  Turn(180); 
+  Forw(50);
+  Turn(90);
+  Forw(50);
+  Turn(180); 
+  Forw(100);
 end;
-//
-begin
-MoveTo(330,290);
-SetSpeed(5);SetColor(Colors.Blue);SetWidth(5);
-window.title := 'Черепаха';
-LeftPanel(150,Colors.Orange);
-var x := 10;
-var w := 130;
-//////////
-var lst := ComboBox('Список фигур');
-lst.Tooltip := 'Выберите фигуру - отобразится изображение';
-lst.AddRange('Линия','Крестик','Снежинка','Квадрат','Куб','Окружность',
-'Окружность пунктиром','Куб пунктиром','Лучи','Изогнутые лучи');
-//////////
-var btnSetup := Button(x,10,'Запустить',w);
-btnSetup.Tooltip := 'Запустите Черепаху';
-btnSetup.Click := () →
-begin
-  case lst.SelectedIndex of
-    0: turtleLine;
-    1: turtleCross;
-    //2: turtleSnowflake;
-    //3: turtleSquare;
-  end;  
-end;
-//////////
-{var sld := Slider(x,0,'Скорость:',1,10,w);
-sld.Tooltip := 'Отрегулируйте скорость';
-sld.ValueChanged := () → TurtleWPF.SetSpeed(sld.Value);}
-//////////
-var btnAtFirst := Button(x,10,'Сначала',w);
-btnAtFirst.Click := procedure → 
-begin
-  Window.Clear;
-  MoveTo(330,290);
-end;
-//////////
-var btnExit := Button(x,10,'Выход',w);
-btnExit.Tooltip := 'Выход';
-btnExit.Click := procedure → Window.Close;
-end.
-///////////////////////////////////////////////////
-// вариант через кнопки
-program My_Turtle;
-uses GraphWPF, Controls, WPFObjects, TurtleWPF;
 /////////////
-procedure turtleLine;
 begin
-  Window.Clear;MoveTo(330,290);Down;Forw(100);
-end;
-///////////
-procedure turtleCross;
-begin
-  Window.Clear;
-  MoveTo(330,290);Down;Forw(100);Back(50);
-  Turn(90);Forw(50);Back(100);
-end;
-///////////
-procedure turtleSquare;
-begin
-  MoveTo(330,290);Down;
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-end;
-//////////
-begin
-MoveTo(330,290);
+var turtleX := 650 div 2;
+var turtleY := 550 div 2;
+MoveTo(turtleX,turtleY);
 SetSpeed(5);SetColor(Colors.Blue);SetWidth(5);
 window.title := 'Черепаха';
 LeftPanel(150,Colors.Orange);
 var x := 10;
 var w := 130;
-//////////
 //////////
 var btnLine := Button(x,10,'Линия',w);
 btnLine.Tooltip := 'Черепаха рисует линию';
@@ -95,25 +36,16 @@ var btnCross := Button(x,10,'Крестик',w);
 btnCross.Tooltip := 'Черепаха рисует крестик';
 btnCross.Click := procedure () → turtleCross;
 //////////
-var btnSquare := Button(x,10,'Квадрат',w);
-btnSquare.Tooltip := 'Черепаха рисует квадрат';
-btnSquare.Click := procedure () → 
-begin
-  MoveTo(330,290);Down;
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-  Forw(100);Turn(90);
-end;
-//////////
 var btnAtFirst := Button(x,10,'Сначала',w);
+btnAtFirst.Tooltip := 'Всё очистить';
 btnAtFirst.Click := procedure → 
 begin
   Window.Clear;
-  MoveTo(330,290);
+  MoveTo(turtleX,turtleY);
 end;
 //////////
 var btnExit := Button(x,10,'Выход',w);
 btnExit.Tooltip := 'Выход';
 btnExit.Click := procedure → Window.Close;
+
 end.
