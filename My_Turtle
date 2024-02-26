@@ -8,14 +8,18 @@ end;
 ///////////
 procedure turtleCross;
 begin
+  Down; Forw(100);Turn(180);Forw(50);
+  TurnLeft(90);Forw(50);Up;TurnLeft(180);
+  Forw(50);Down;Forw(50);
+end;
+/////////////
+procedure turtleSquare;
+begin
   Down;
-  Forw(100);
-  Turn(180); 
-  Forw(50);
-  Turn(90);
-  Forw(50);
-  Turn(180); 
-  Forw(100);
+  loop 4 do 
+    begin
+      Forw(100);Turn(90);
+    end;
 end;
 /////////////
 begin
@@ -35,6 +39,10 @@ btnLine.Click := procedure () → turtleLine;
 var btnCross := Button(x,10,'Крестик',w);
 btnCross.Tooltip := 'Черепаха рисует крестик';
 btnCross.Click := procedure () → turtleCross;
+//////////
+var btnSquare := Button(x,10,'Квадрат',w);
+btnSquare.Tooltip := 'Черепаха рисует квадрат';
+btnSquare.Click := procedure () → turtleSquare;
 //////////
 var btnAtFirst := Button(x,10,'Сначала',w);
 btnAtFirst.Tooltip := 'Всё очистить';
