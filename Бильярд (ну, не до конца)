@@ -1,0 +1,22 @@
+## //задача №93
+uses GraphABC;
+var (x, y) := (Random(35,605), Random(35,445));
+var (dx, dy) := (Random(-3,3), Random(-3,3));
+LockDrawing;
+
+repeat
+  Window.Clear;
+  Brush.Color := clLime;
+  Rectangle(35,35,605,445); //как будто стол бильярдный...
+  Brush.Color := clRed;
+  Circle(x,y,10);
+  Redraw;
+  // "попадание" в лузу:
+  if (x not in 60..580) and (y not in 60..420) then break; 
+  
+  x := x+dx; y := y+dy;
+
+  if (x < 45) or (x > 595) then dx := -dx;
+  if (y < 45) or (y > 435) then dy := -dy;
+
+until false;
