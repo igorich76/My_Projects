@@ -1,0 +1,43 @@
+## // Что-то типа dx-ball...
+uses wpfobjects;
+//
+Window.Title := 'Проба';
+Window.IsFixedSize := true;
+Window.Width := 800;
+Window.Height := 600;
+Window.Clear(Colors.Lightblue);
+Window.CenterOnScreen;
+//
+var (x, y) := (Random(20,780), Random(20,580));
+var (dx, dy) := (Random(-5,5), Random(-5,5));
+var Rect := new RectangleWPF(Window.Width/2-100, Window.Height-20, 200, 20, Colors.Black);
+var ball := new CircleWPF(x, y, 20, Colors.Red);
+//
+var X_икс := Window.Width/2-100;
+//
+//
+repeat
+OnDrawFrame := dt →
+begin
+  if (x < 5) or (x > 765) then dx := -dx;
+  if (y < 5) or (y > 565) then dy := -dy;
+  x := x+dx; y := y+dy;
+  ball.MoveTo(x,y);
+end;
+//
+OnKeyDown := k → 
+  if k = Key.Left then 
+    begin
+      Rect.MoveTo(X_икс,Window.Height-20);
+      X_икс -= 5;
+      if X_икс < 0 then X_икс := 0;
+    end
+    else
+  if k = Key.Right then
+    begin
+      Rect.MoveTo(X_икс,Window.Height-20);
+      X_икс += 5;
+      if X_икс > 600 then X_икс := 600;
+    end;
+Redraw;
+until false;
