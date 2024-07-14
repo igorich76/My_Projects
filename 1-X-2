@@ -25,3 +25,15 @@ Print('9. ');
 var j := Arr('-1-','-X-','-2-'); j.Shuffle; var j1 := j[0]; j1.Println;
 Print('10.');
 var k := Arr('-1-','-X-','-2-'); k.Shuffle; var k1 := k[0]; k1.Println;
+///////////////////// другие версии.... //////////////////////
+##
+var mass := |'-1-', '-Х-', '-2-'|;
+for var i:=1 to 14 do Println($'{i}. {mass[Random(0,2)]}'); 
+//////////////// и ещё /////////////////
+##
+var mass := |'-1-', '-Х-', '-2-'|; 
+for var i := 1 to 14 do
+  begin
+    mass.Shuffle;
+    Println($'{i}. {mass[Random(0,2)]}');
+  end;
